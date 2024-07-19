@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package kz.paspay.paspaytranslateservice.grpc;
+
+option java_outer_classname = "ciryllicToLatin";
+
+service CiryllicToLatin {
+  rpc translateCiryllicToLatin (Request) returns (Response);
+}
+
+message Request {
+  string message = 1;
+  string requestId = 2;
+}
+
+message Response {
+  string translatedMessage = 1;
+  string requestId = 2;
+  bool success = 3;
+  string errorCode = 4;
+}

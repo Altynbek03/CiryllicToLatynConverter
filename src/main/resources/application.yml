@@ -1,0 +1,10 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    root: debug
+
+properties:
+  legalChars: "аәбвгғдеёжзийкқлмнңоөыпрстуұүфхһцчшщъіьэюяАӘБВГҒДЕЁЖЗИЙКҚЛМНҢОӨПРСТҰУҮФХҺЦЧШЩЪЫІЬЭЮЯabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789/-"
+  abcLat: a,a,b,v,g,g,d,e,e,zh,z,i,i,k,q,l,m,n,n,o,o,y,p,r,s,t,u,u,u,f,h,h,c,ch,sh,sh,",i,',e,ju,ja,A,A,B,V,G,G,D,E,E,ZH,Z,I,I,K,Q,L,M,N,N,O,O,P,R,S,T,U,U,U,F,H,H,C,CH,SH,SH,",Y,I,',E,JU,JA,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,1,2,3,4,5,6,7,8,9,/,-
