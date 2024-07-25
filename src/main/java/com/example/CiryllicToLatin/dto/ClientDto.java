@@ -1,4 +1,4 @@
-package com.example.CiryllicToLatin.DTO;
+package com.example.CiryllicToLatin.dto;
 
 import lombok.Data;
 

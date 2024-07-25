@@ -1,9 +1,9 @@
-package com.example.CiryllicToLatin.Controller;
+package com.example.CiryllicToLatin.controller;
 
-import com.example.CiryllicToLatin.DTO.ClientDto;
-import com.example.CiryllicToLatin.Parser.FromXmlToTxt;
+import com.example.CiryllicToLatin.dto.ClientDto;
+import com.example.CiryllicToLatin.parser.FromXmlToTxt;
 
-import com.example.CiryllicToLatin.Service.FilesService;
+import com.example.CiryllicToLatin.service.FilesService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

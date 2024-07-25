@@ -1,8 +1,11 @@
-package com.example.CiryllicToLatin.Service;
+package com.example.CiryllicToLatin.service;
 
-import com.example.CiryllicToLatin.DTO.ClientDto;
+import com.example.CiryllicToLatin.dto.ClientDto;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,9 +20,9 @@ import java.util.List;
 
 @Service
 public class FilesService {
+    private static final Logger log = LoggerFactory.getLogger(FilesService.class);
     @Autowired
     private CiryllicToLatynService ciryllicToLatynService;
-    private final String uploadDir = "files/";
     public void saveFile(MultipartFile file) throws IOException {
         try {
             String uploadDir = "files/";
@@ -41,7 +44,7 @@ public class FilesService {
     public void writeIntoTxt(List<ClientDto> convertedClients){
         try {
 
-            File file = new File("files//123.txt");
+            File file = new File("files/123.txt");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -54,12 +57,12 @@ public class FilesService {
             bw.close();
 
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.error(e.getMessage());
         }
     }
 
     public void download(HttpServletResponse response) throws IOException {
-        File file = new File("files//123.txt");
+        File file = new File("files/123.txt");
         response.setContentType("application/octet-stream");
         String headerKey = "Content-Disposition";
         String headerValue = String.format("attachment; filename=\"%s\"", file.getName());
@@ -92,7 +95,7 @@ public class FilesService {
             }
             return clientsOutput;
         }catch(Exception e){
-            e.printStackTrace();
+            log.error(e.getMessage());
         }
         return null;
     }

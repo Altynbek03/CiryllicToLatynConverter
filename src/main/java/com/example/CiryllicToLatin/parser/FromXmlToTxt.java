@@ -1,6 +1,6 @@
-package com.example.CiryllicToLatin.Parser;
+package com.example.CiryllicToLatin.parser;
 
-import com.example.CiryllicToLatin.DTO.ClientDto;
+import com.example.CiryllicToLatin.dto.ClientDto;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

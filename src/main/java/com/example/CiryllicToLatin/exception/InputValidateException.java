@@ -1,4 +1,4 @@
-package com.example.CiryllicToLatin.Exception;
+package com.example.CiryllicToLatin.exception;
 
 public class InputValidateException extends Exception {
     public InputValidateException() {
