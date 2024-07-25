@@ -3,6 +3,7 @@ package com.example.CiryllicToLatin.service;
 import com.example.CiryllicToLatin.dto.ClientDto;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +18,9 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 public class FilesService {
-    private static final Logger log = LoggerFactory.getLogger(FilesService.class);
     @Autowired
     private CiryllicToLatynService ciryllicToLatynService;
     public void saveFile(MultipartFile file) throws IOException {
