@@ -25,27 +25,28 @@ public class GrpcCiryllicToLatynService extends CiryllicToLatinGrpc.CiryllicToLa
 
     private ciryllicToLatin.Response getResponse(ciryllicToLatin.Request request) {
         if (request.getMessage().isEmpty()) {
-            var response = setResponseFields("Было получено пустое значение", "1", request.getRequestId());
+            var response = setResponseFields("Было получено пустое значение", "1", request.getRequestId(),false);
             log.error(request.getMessage());
             return response;
         }
         try {
-            var response = setResponseFields(ciryllicToLatynService.convertCiryllic(request.getMessage()), "0", request.getRequestId());
+            var response = setResponseFields(ciryllicToLatynService.convertCiryllic(request.getMessage()), "0", request.getRequestId(),true);
             log.info(response.getTranslatedMessage());
             return response;
 
         } catch (InputValidateException e) {
-            var response = setResponseFields("Ошибка валидации,были получены некорректные данные", "2", request.getRequestId());
+            var response = setResponseFields("Ошибка валидации,были получены некорректные данные", "2", request.getRequestId(),false);
             log.error(e.getLocalizedMessage());
             return response;
         }
     }
 
-    private ciryllicToLatin.Response setResponseFields(String message, String errorCode, String requestId) {
+    private ciryllicToLatin.Response setResponseFields(String message, String errorCode, String requestId,boolean status) {
         return ciryllicToLatin.Response.newBuilder()
                                        .setTranslatedMessage(message)
                                        .setErrorCode(errorCode)
                                        .setRequestId(requestId)
+                                       .setSuccess(status)
                                        .build();
     }
 
