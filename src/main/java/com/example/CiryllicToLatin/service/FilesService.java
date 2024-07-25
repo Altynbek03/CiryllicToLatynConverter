@@ -3,7 +3,6 @@ package com.example.CiryllicToLatin.service;
 import com.example.CiryllicToLatin.dto.ClientDto;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,7 +87,7 @@ public class FilesService {
         List<ClientDto> clientsOutput = new ArrayList<>();
         try{
             for(ClientDto clientDto : clients){
-                String clientConvertedFIO = ciryllicToLatynService.convertCyrilic(clientDto.getFullName());
+                String clientConvertedFIO = ciryllicToLatynService.convertCiryllic(clientDto.getFullName());
                 ClientDto client = new ClientDto();
                 client.setFullName(clientConvertedFIO);
                 clientsOutput.add(client);
